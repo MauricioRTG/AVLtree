@@ -42,7 +42,7 @@ public class MyAVLtreeGUI extends JFrame implements ActionListener {
      
      int dato;
      
-     int i;
+     //int i;
     public static void main(String[] args) {
           MyAVLtreeGUI frame = new MyAVLtreeGUI();
         frame.setVisible(true);
@@ -79,13 +79,13 @@ public class MyAVLtreeGUI extends JFrame implements ActionListener {
         
         options.addSeparator();
         
-        item = new JMenuItem ("Show Array");
+        item = new JMenuItem ("Show Tree");
         item.addActionListener(this);
         options.add(item);
         
          options.addSeparator();
         
-        item = new JMenuItem ("Sort");
+        item = new JMenuItem ("Search");
         item.addActionListener(this);
         options.add(item);
         
@@ -111,7 +111,7 @@ public class MyAVLtreeGUI extends JFrame implements ActionListener {
         textArea.setEditable(false);
         scrollText.setBorder(BorderFactory.createLineBorder(Color.blue));
         contentPane.add(scrollText);
-        textArea.setFont(new Font("Serif", Font.PLAIN, 50));
+        textArea.setFont(new Font("Serif", Font.PLAIN, 30));
         
         setDefaultCloseOperation( EXIT_ON_CLOSE ); //Se cierra el programa
         
@@ -127,30 +127,34 @@ public class MyAVLtreeGUI extends JFrame implements ActionListener {
             case ("ADD"): 
                String input =  JOptionPane.showInputDialog("Escribe dato que se quiere añadir:");
                avl.data = Integer.parseInt(input);
-                avl.add(avl.data,avl.node,nodeobj.parent);
-                System.out.println(avl.cont);
+               avl.node = avl.root;
+                avl.add(avl.data,avl.node,avl.root);
+                //System.out.println(avl.cont);
             break;
-            /*case ("Delete"): 
-                myarray.delete(dato);
+            case ("Delete"): 
+                String input3 =  JOptionPane.showInputDialog("Escribe el dato que quieres eliminar ");
+                 int numero = Integer.parseInt(input3);
+                avl.delete(numero);
             break;
             case ("Insert File"): 
-                myarray.loadFile();
+                avl.loadFile();
     
             break;
-            case ("Exit"): System.exit(0);
+             case ("Search"): 
+                 String input2 =  JOptionPane.showInputDialog("Escribe el dato que quieres saber si se encuentra en el arbol: ");
+                 int valor = Integer.parseInt(input2);
+                 Node hola = avl.search(valor);
+                 if(hola == null){
+                     JOptionPane.showMessageDialog(null,"No se encontro valor");
+                 }
+                 else{
+                      JOptionPane.showMessageDialog(null,"Si se encontro valor");
+                 }
+    
             break;
-            case ("Show Array"):
-                avl.print_tree(avl.node,avl.cont);
-                textArea.setText(avl.print_tree(avl.node,avl.cont));
-            break;
-            case ("Sort"): 
-                myarray.mergesort(0,myarray.counter-1);
-                JOptionPane.showMessageDialog(null,"Numero de movimientos: "+ myarray.mov);
-                myarray.mov = 0;
-            break;*/
-            case ("Show Array"):
-                String z = avl.print_tree(avl.node,avl.cont);
-                System.out.println(z);
+            case ("Show Tree"):
+               // String z = avl.print_tree(avl.root,avl.cont);
+                textArea.setText(avl.print_tree(avl.root,avl.cont));
             break;
             case ("Exit"): System.exit(0);
             break;
