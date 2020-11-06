@@ -11,7 +11,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import java.io.File;
 /**
  *
- * @author LIVERPOOL I5
+ * @author Mauricio Tenorio
  */
 public class MyAVLtreeGUI extends JFrame implements ActionListener {
 
