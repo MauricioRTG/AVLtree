@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 /**
  *
- * @author LIVERPOOL I5
+ * @author Mauricio Tenorio
  */
 public class AVLtree {
     Node root = null;
