@@ -7,7 +7,7 @@ package myavltreegui;
 
 /**
  *
- * @author LIVERPOOL I5
+ * @author Mauricio Tenorio
  */
  class Node {
     int data;
